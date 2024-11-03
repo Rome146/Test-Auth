@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* styles.css */
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Navbar Background with Gradient */
+.navbar-center {
+    background: linear-gradient(135deg, #ff8a00, #e52e71);
+    padding: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Centered Navbar Styling */
+.navbar-center ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Navbar Link Styling */
+.navbar-center li a {
+    color: #fff;
+    font-weight: 500;
+    padding: 12px 24px;
+    margin: 0 10px;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+/* Hover Underline Effect */
+.navbar-center li a::after {
+    content: '';
+    width: 0;
+    height: 3px;
+    background-color: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.navbar-center li a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Hover Color and Shadow Effect */
+.navbar-center li a:hover {
+    color: #ff8a00;
+    background-color: #fff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Active Link Styling */
+.navbar-center li a.active {
+    background-color: #fff;
+    color: #ff8a00;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-center ul {
+        flex-direction: column;
+        text-align: center;
+    }
+    .navbar-center li {
+        margin-bottom: 10px;
+    }
+}
+
+/* Body Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f7f8;
+    padding-top: 50px; /* Adjust for sticky navbar */
+}
+
+/* Page Content Styling */
+.content {
+    padding: 20px;
+    text-align: center;
+}
+
+.content h1 {
+    color: #333;
+    font-size: 2em;
+}
+
+.content p {
+    color: #555;
+    font-size: 1.1em;
+    margin-top: 10px;
+}
+
+/* Form Styling for signupPage */
+form {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Title */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Error Message Styling */
+p {
+    color: red;
+    font-size: 0.9em;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Label Styling */
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: bold;
+}
+
+/* Input and Select Styling */
+input[type="text"],
+input[type="password"],
+input[type="file"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="file"]:focus,
+select:focus {
+    border-color: #333;
+}
+
+/* Button Styling */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff8a00;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #e52e71;
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar Section -->
+    {% include "navbar.html" %}
+    {% block body %}
+    
+    {% endblock body %}
+
+    <!-- Page Content -->
+    <div class="content">
+        <h1>Welcome to Our Website</h1>
+        <p>This is a sample page with a responsive navbar and some sample content. Resize your browser to see the responsive effect!</p>
+    </div>
+
+</body>
+</html>
